@@ -1,9 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 
 function App() {
   const { register, handleSubmit } = useForm();
-
+  const [image, setImage] = useState();
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("myfile", data.file[0]);
@@ -12,6 +12,7 @@ function App() {
       body: formData,
     })
       .then((res) => res.json())
+      .then((data) => setImage(data.url))
       .catch((err) => console.log(err));
   };
 
@@ -21,6 +22,7 @@ function App() {
         <input {...register("file")} type="file" />
         <button type="submit">Submit</button>
       </form>
+      <img src={image} alt="En attente d'une image" />
     </div>
   );
 }
