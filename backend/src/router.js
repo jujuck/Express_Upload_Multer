@@ -1,7 +1,7 @@
 const express = require("express");
 const multer = require("multer");
 
-const upload = multer({ dest: "../public/tmp/" });
+const upload = multer({ dest: "public/tmp/" });
 
 const { ItemController, UploadController } = require("./controllers");
 

@@ -7,7 +7,7 @@ On this part, we will implement the back end code in order to upload a file.
 
 - / On the *router.js* file, just add a path on a `post` to a *UploadController.js* with an `upload()` method, that we will create just after. Direct the path to `/upload`;
 - 2/ In this path, we will add a middleware wiht the *multer* package. For that, import the `multer` package and initialize it with 
-``` const upload = multer({ dest: "./public/tmp/" });```
+``` const upload = multer({ dest: "public/tmp/" });```
 Then, add your middleware directly bteween your path and the call to the controller
 ``` upload.single("myfile") ```
 - 3/ Create your controller from the item model and delete everything related to route in it. (Static method)
@@ -22,7 +22,7 @@ Finale Code
 ```
 fs.rename(
   req.file.path,
-  `./public/images/${req.file.originalname}`,
+  `public/images/${req.file.originalname}`,
   (err) => {
     if (err) {
       console.log(err);
