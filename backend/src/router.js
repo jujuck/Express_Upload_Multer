@@ -1,4 +1,7 @@
 const express = require("express");
+const multer = require("multer");
+
+const upload = multer({ dest: "../public/tmp/" });
 
 const { ItemController, UploadController } = require("./controllers");
 
@@ -10,6 +13,6 @@ router.put("/items/:id", ItemController.edit);
 router.post("/items", ItemController.add);
 router.delete("/items/:id", ItemController.delete);
 
-router.post("upload", UploadController.upload);
+router.post("upload", upload.single("myfile"), UploadController.upload);
 
 module.exports = router;
