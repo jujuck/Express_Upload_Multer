@@ -74,7 +74,7 @@ If you try to get the image, you see an error...
 We can't access it now...
 
 On the back end part
-- 1/ On the *iapp.js* file in the src folder, we will modify the redirect route on '*' in order to access our file.
+- 1/ On the *app.js* file in the src folder, we will modify the redirect route on '*' in order to access our file.
 ```
 app.get("*", (req, res) => {
   if (req.path.includes("public")) {
