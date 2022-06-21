@@ -74,10 +74,17 @@ If you try to get the image, you see an error...
 We can't access it now...
 
 On the back end part
-- 1/ On the *index.js* file, we will add directly a route just under the `app.listen(port, (err) => {...`. This one will transfert the file if your route begin with a `public` path.
+- 1/ On the *iapp.js* file in the src folder, we will modify the redirect route on '*' in order to access our file.
 ```
-app.get("/public/:folder/:file", (req, res) => {
-  res.sendFile(`${__dirname}/public/${req.params.folder}/${req.params.file}`);
+app.get("*", (req, res) => {
+  if (req.path.includes("public")) {
+    const urlpath = req.path.split("/");
+    res.sendFile(path.join(__dirname, "..", "public", urlpath[2], urlpath[3]));
+  } else {
+    res.sendFile(
+      path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+    );
+  }
 });
 ```
 
