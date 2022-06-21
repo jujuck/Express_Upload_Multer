@@ -7,7 +7,12 @@ function App() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("myfile", data.file[0]);
-    console.log(data);
+    fetch("http://localhost:5000/upload", {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .catch((err) => console.log(err));
   };
 
   return (
