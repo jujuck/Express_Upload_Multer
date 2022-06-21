@@ -11,7 +11,7 @@ class UploadController {
         } else {
           res.status(203).json({
             msg: "Upload success",
-            url: `http://localhost:5000/public/images/${req.file.originalname}`,
+            url: `http://localhost:5050/public/images/${req.file.originalname}`,
           });
         }
       }

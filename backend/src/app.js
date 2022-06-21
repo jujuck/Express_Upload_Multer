@@ -26,9 +26,14 @@ app.use(router);
 
 // Redirect all requests to the REACT app
 app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
-  );
+  if (req.path.includes("public")) {
+    const urlpath = req.path.split("/");
+    res.sendFile(path.join(__dirname, "..", "public", urlpath[2], urlpath[3]));
+  } else {
+    res.sendFile(
+      path.join(__dirname, "..", "..", "frontend", "dist", "index.html")
+    );
+  }
 });
 
 // ready to export

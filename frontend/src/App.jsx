@@ -7,7 +7,7 @@ function App() {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("myfile", data.file[0]);
-    fetch("http://localhost:5000/upload", {
+    fetch("http://localhost:5050/upload", {
       method: "POST",
       body: formData,
     })
