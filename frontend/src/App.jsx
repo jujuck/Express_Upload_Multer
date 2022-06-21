@@ -6,6 +6,7 @@ function App() {
 
   const onSubmit = (data) => {
     const formData = new FormData();
+    formData.append("myfile", data.file[0]);
     console.log(data);
   };
 
