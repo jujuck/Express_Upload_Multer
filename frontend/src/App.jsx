@@ -1,9 +1,14 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 function App() {
+  const { register, handleSubmit } = useForm();
   return (
     <div>
-      <h1>My new app to upload</h1>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("file")} type="file" />
+        <button type="submit">Submit</button>
+      </form>
     </div>
   );
 }
