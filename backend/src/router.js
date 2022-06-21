@@ -13,6 +13,6 @@ router.put("/items/:id", ItemController.edit);
 router.post("/items", ItemController.add);
 router.delete("/items/:id", ItemController.delete);
 
-router.post("upload", upload.single("myfile"), UploadController.upload);
+router.post("/upload", upload.single("myfile"), UploadController.upload);
 
 module.exports = router;
