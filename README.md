@@ -1,6 +1,5 @@
 ## Get ready for uploading file
-Git clone this project and run `npm run setup` to install all needed package on both front and back side.
-You can watch the workshop on this video https://drive.google.com/file/d/1ka409tnpqqtCJC_eOwzsek3PZIICqoO7/view?usp=sharing
+Git clone this project and run `npm run setup` to install all needed package on both front and back side
 
 
 ## Ok, let's go on a back end upload
